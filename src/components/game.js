@@ -8,12 +8,12 @@ function Game() {
     const currentSquares = history[currentMove];
     function reset(){
         setHistory([Array(9).fill(null)]);
-        setChance(0);
+        setChance(true);
     }
     function handlePlay(nextSquares){
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
-        setCurrentMove(history.length()-1);
+        setCurrentMove(nextHistory.length-1);
         setChance(!chance);
     }
     function jumpTo(move){
