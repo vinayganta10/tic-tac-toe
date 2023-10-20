@@ -8,6 +8,7 @@ function Game() {
     const chance = currentMove%2===0;
     function reset(){
         setHistory([Array(9).fill(null)]);
+        setCurrentMove(0);
     }
     function handlePlay(nextSquares){
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];

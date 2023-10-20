@@ -3,6 +3,7 @@ import './board.css';
 
 function Board(props) {
     let squares = props.squares;
+    let reset = props.reset;
     function calculateWinner(sq){
         const lines = [
             [0, 1, 2],
@@ -73,7 +74,7 @@ function Board(props) {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
-      <button type="reset" onClick={props.reset}>New game</button>
+      <button type="reset" onClick={reset}>New game</button>
     </>
   );
 }
