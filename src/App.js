@@ -1,12 +1,11 @@
-import Board from './components/board';
-//import logo from './logo.svg';
+import Game from './components/game';
 import './App.css';
 
 function App() {
   return (
     <>
       <div className="App-header">
-        <Board/>
+          <Game/>
       </div>
     </>
   );
