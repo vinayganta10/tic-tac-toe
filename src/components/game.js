@@ -2,23 +2,20 @@ import { useState } from "react";
 import Board from "./board";
 
 function Game() {
-    const [chance,setChance] = useState(true);
     const [history,setHistory] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
     const currentSquares = history[currentMove];
+    const chance = currentMove%2===0;
     function reset(){
         setHistory([Array(9).fill(null)]);
-        setChance(true);
     }
     function handlePlay(nextSquares){
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length-1);
-        setChance(!chance);
     }
     function jumpTo(move){
         setCurrentMove(move);
-        setChance(move%2===0);
     }
     const moves = history.map((squares, move) => {
         let description;
