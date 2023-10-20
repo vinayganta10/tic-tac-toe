@@ -5,17 +5,20 @@ function Game() {
     const [chance,setChance] = useState(true);
     const [history,setHistory] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
-    const currentSquares = history[history.length-1];
+    const currentSquares = history[currentMove];
     function reset(){
         setHistory([Array(9).fill(null)]);
         setChance(0);
     }
     function handlePlay(nextSquares){
-        setHistory([...history,nextSquares]);
+        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+        setHistory(nextHistory);
+        setCurrentMove(history.length()-1);
         setChance(!chance);
     }
-    function jumpTo(){
-
+    function jumpTo(move){
+        setCurrentMove(move);
+        setChance(move%2===0);
     }
     const moves = history.map((squares, move) => {
         let description;
