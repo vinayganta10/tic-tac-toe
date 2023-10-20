@@ -1,3 +1,6 @@
-.square{
-    background-color: blueviolet;
+button.square{
+    background-color: rgb(198, 152, 252);
+    height: 30px;
+    width: 30px;
+    border:2px solid black;
 }
