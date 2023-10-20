@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Square from "./Square";
+import './board.css';
 
 function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -25,17 +26,24 @@ function Board() {
   }
   let winner = calculateWinner(squares);
   let status=""
-  if(winner){
-    status="Winner is" + winner;
+  let containsNull = squares.some((element)=>element===null);
+  if(containsNull){
+    if(winner){
+        status="Winner is" + winner;
+      }
+      else{
+        if(chance===0){
+            status="next move X";
+        }
+        else{
+            status="next move O";
+        }
+      }
   }
   else{
-    if(chance===0){
-        status="next move X";
-    }
-    else{
-        status="next move O";
-    }
+    status="DRAW click on new game";
   }
+  
   return (
     <>
         <div className="status">{status}</div>
